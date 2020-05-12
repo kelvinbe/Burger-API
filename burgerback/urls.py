@@ -7,6 +7,14 @@ ingredients_list = IngredientViewSet.as_view({
     'post': 'create'
 })
 
+ingredients_detail = IngredientViewSet.as_view({
+    'get': 'retrieve',
+    'put': 'update',
+    'patch': 'partial_update',
+    'delete': 'destroy'
+})
+
 urlpatterns = [
-    path('', ingredients_list, name='ingredient-list')
+    path('ingredients/', ingredients_list, name='ingredient-list'),
+    path('ingredients/<int:pk>/',  ingredients_detail, name='ingredient-detail')
 ]
