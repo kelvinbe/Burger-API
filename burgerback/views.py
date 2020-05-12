@@ -8,7 +8,7 @@ from burgerback.serializers.serializers import IngredientSerializer
 
 
 class IngredientViewSet(viewsets.ModelViewSet):
-    queryset = Ingredient.objects.all()
+    queryset = Ingredient.objects.all().order_by('ordered')
     serializer_class = IngredientSerializer
     
 
