@@ -14,3 +14,7 @@ class Ingredient(models.Model):
     class Meta:
         ordering = ['ordered']
 
+    def __str__(self):
+        return self.name
+
+

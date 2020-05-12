@@ -18,7 +18,7 @@ class IngredientSerializer(serializers.ModelSerializer):
         instance.name = validated_data.get('name', instance.name)
         instance.price = validated_data.get('price', instance.price)
         instance.ordered = validated_data.get('ordered', instance.ordered)
-        instance.user = validated_data.get('ordered', instance.ordered)
+        instance.user = validated_data.get('user', instance.user)
         instance.save()
         return instance
 
@@ -26,6 +26,7 @@ class IngredientSerializer(serializers.ModelSerializer):
 class CreateUserSerializer(serializers.ModelSerializer):
     name = serializers.PrimaryKeyRelatedField(
         many=True, queryset=Ingredient.objects.all())
+
     class Meta:
         model = User
         fields = ['email', 'username', 'password', 'name']
